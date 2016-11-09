@@ -133,11 +133,11 @@ def getindex(keyword="希拉里"):
     # 点击搜索
     # <input type="submit" value="" id="searchWords" onclick="searchDemoWords()">
     browser.find_element_by_id("searchWords").click()
-
-    # 选择7天
-    browser.find_element_by_xpath('//a[@rel="7"]').click()
+    time.sleep(2)
     # 最大化窗口
     browser.maximize_window()
+    # 选择7天
+    browser.find_element_by_xpath('//a[@rel="7"]').click()
     # 太快了
     time.sleep(2)
     # 滑动思路：http://blog.sina.com.cn/s/blog_620987bf0102v2r8.html
@@ -147,37 +147,64 @@ def getindex(keyword="希拉里"):
     # <div id="trend" class="R_paper" style="height:480px;_background-color:#fff;"><svg height="460" version="1.1" width="954" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.5px;">
     # <rect x="20" y="130" width="914" height="207.66666666666666" r="0" rx="0" ry="0" fill="#ff0000" stroke="none" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></rect>
     # xoyelement = browser.find_element_by_xpath('//rect[@stroke="none"]')
-    xoyelement = browser.find_elements_by_css_selector("#trend rect")
+    xoyelement = browser.find_elements_by_css_selector("#trend rect")[2]
     num = 0
+    # 获得坐标长宽
+    x = xoyelement.location['x']
+    y = xoyelement.location['y']
+    width = xoyelement.size['width']
+    height = xoyelement.size['height']
+    print(x,y,width,height)
     # 常用js:http://www.cnblogs.com/hjhsysu/p/5735339.html
-    for item in xoyelement:
-        try:
-            # webdriver.ActionChains(driver).move_to_element().click().perform()
-            # 只有移动位置xoyelement[2]是准确的
-            ActionChains(browser).move_to_element(item).perform()
-            time.sleep(2)
-            # <div class="imgtxt" style="margin-left:-117px;"></div>
-            imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
-            # 找到图片坐标
-            locations = imgelement.location
-            print(locations)
-            # 找到图片大小
-            sizes = imgelement.size
-            print(sizes)
-            # 构造位置
-            rangle = (int(locations['x']), int(locations['y']), int(locations['x'] + sizes['width']),
-                      int(locations['y'] + sizes['height']))
-            # 截取当前浏览器
-            path = "../baidu/" + str(num)
-            browser.save_screenshot(str(path) + ".png")
-            # 打开截图切割
-            img = Image.open(str(path) + ".png")
-            jpg = img.crop(rangle)
-            jpg.save(str(path) + ".jpg")
-            num = num + 1
-            input(22222)
-        except:
-            print(num)
+    # 搜索词：selenium JavaScript模拟鼠标悬浮
+    '''
+    "var evObj = document.createEvent('MouseEvents');" +
+    "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
+    "arguments[0].dispatchEvent(evObj);";
+    '''
+    x = 20
+    y = 0
+    try:
+        # webdriver.ActionChains(driver).move_to_element().click().perform()
+        # 只有移动位置xoyelement[2]是准确的
+        while True:
+            ActionChains(browser).move_to_element_with_offset(xoyelement,x,y).perform()
+            a = int(input(str(x) + "," + str(y)))
+            if a == 1:
+                x = x + 152
+            elif a == 2:
+                y = y + 10
+            elif a == 3:
+                x = x - 10
+            elif a == 4:
+                y = y - 10
+        #ActionChains(browser).move_by_offset(x, y).perform()
+
+
+        time.sleep(2)
+        # <div class="imgtxt" style="margin-left:-117px;"></div>
+        imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
+        # 找到图片坐标
+        locations = imgelement.location
+        print(locations)
+        # 找到图片大小
+        sizes = imgelement.size
+        print(sizes)
+        # 构造位置
+        rangle = (int(locations['x']), int(locations['y']), int(locations['x'] + sizes['width']),
+                  int(locations['y'] + sizes['height']))
+        # 截取当前浏览器
+        path = "../baidu/" + str(num)
+        browser.save_screenshot(str(path) + ".png")
+        # 打开截图切割
+        img = Image.open(str(path) + ".png")
+        jpg = img.crop(rangle)
+        jpg.save(str(path) + ".jpg")
+        num = num + 1
+        input(22222)
+    except Exception as err:
+        print(err)
+        print(num)
 
 
 
