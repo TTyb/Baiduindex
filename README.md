@@ -1,6 +1,11 @@
-## °Ù¶ÈÖ¸Êı×¥È¡£¬ÔÙÓÃÍ¼ÏñÊ¶±ğµÃµ½Ö¸Êı
-### °²×°µÄ¿âºÜ¶à£º
->¹È¸èÍ¼ÏñÊ¶±ğtesseract-ocr
+## ç™¾åº¦æŒ‡æ•°æŠ“å–ï¼Œå†ç”¨å›¾åƒè¯†åˆ«å¾—åˆ°æŒ‡æ•°
+
+## å‰è¨€ï¼š
+åœŸç¦æ›¾è¯´ï¼Œç™¾åº¦æŒ‡æ•°å¾ˆéš¾æŠ“ï¼Œåœ¨æ·˜å®ä¸Šé¢æ˜¯20å—1ä¸ªå…³é”®å­—ï¼š
+![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110162432795-1923984431.png)
+
+### å®‰è£…çš„åº“å¾ˆå¤šï¼š
+>è°·æ­Œå›¾åƒè¯†åˆ«tesseract-ocr
 
 >pip3 install pillow
 
@@ -12,40 +17,40 @@
 
 >chromedriver.exe
 
-### Í¼ÏñÊ¶±ğÑéÖ¤ÂëÇë²Î¿¼ÎÒµÄ²©¿Í£º
-[pythonÍ¼ÏñÊ¶±ğ--ÑéÖ¤Âë](http://www.cnblogs.com/TTyb/p/5996847.html)
+### å›¾åƒè¯†åˆ«éªŒè¯ç è¯·å‚è€ƒæˆ‘çš„åšå®¢ï¼š
+[pythonå›¾åƒè¯†åˆ«--éªŒè¯ç ](http://www.cnblogs.com/TTyb/p/5996847.html)
 
-### seleniumÓÃ·¨Çë²Î¿¼ÎÒµÄ²©¿Í£º
-[pythonÖ®selenium](http://www.cnblogs.com/TTyb/p/5842015.html)
+### seleniumç”¨æ³•è¯·å‚è€ƒæˆ‘çš„åšå®¢ï¼š
+[pythonä¹‹selenium](http://www.cnblogs.com/TTyb/p/5842015.html)
 
-### ½øÈë°Ù¶ÈÖ¸ÊıĞèÒªµÇÂ½£¬µÇÂ½µÄÕËºÅÃÜÂëĞ´ÔÚÎÄ±¾accountÀïÃæ£º
+### è¿›å…¥ç™¾åº¦æŒ‡æ•°éœ€è¦ç™»é™†ï¼Œç™»é™†çš„è´¦å·å¯†ç å†™åœ¨æ–‡æœ¬accounté‡Œé¢ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110153714827-1835068903.png)
 
-### ÍòÄÜµÇÂ½´úÂëÈçÏÂ£º
+### ä¸‡èƒ½ç™»é™†ä»£ç å¦‚ä¸‹ï¼š
 ```
-# ´ò¿ªä¯ÀÀÆ÷
+# æ‰“å¼€æµè§ˆå™¨
 def openbrowser():
     global browser
 
     # https://passport.baidu.com/v2/?login
     url = "https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F"
-    # ´ò¿ª¹È¸èä¯ÀÀÆ÷
+    # æ‰“å¼€è°·æ­Œæµè§ˆå™¨
     # Firefox()
     # Chrome()
     browser = webdriver.Chrome()
-    # ÊäÈëÍøÖ·
+    # è¾“å…¥ç½‘å€
     browser.get(url)
-    # ´ò¿ªä¯ÀÀÆ÷Ê±¼ä
-    # print("µÈ´ı10Ãë´ò¿ªä¯ÀÀÆ÷...")
+    # æ‰“å¼€æµè§ˆå™¨æ—¶é—´
+    # print("ç­‰å¾…10ç§’æ‰“å¼€æµè§ˆå™¨...")
     # time.sleep(10)
 
-    # ÕÒµ½id="TANGRAM__PSP_3__userName"µÄ¶Ô»°¿ò
-    # Çå¿ÕÊäÈë¿ò
+    # æ‰¾åˆ°id="TANGRAM__PSP_3__userName"çš„å¯¹è¯æ¡†
+    # æ¸…ç©ºè¾“å…¥æ¡†
     browser.find_element_by_id("TANGRAM__PSP_3__userName").clear()
     browser.find_element_by_id("TANGRAM__PSP_3__password").clear()
 
-    # ÊäÈëÕËºÅÃÜÂë
-    # ÊäÈëÕËºÅÃÜÂë
+    # è¾“å…¥è´¦å·å¯†ç 
+    # è¾“å…¥è´¦å·å¯†ç 
     account = []
     try:
         fileaccount = open("../baidu/account.txt")
@@ -55,40 +60,40 @@ def openbrowser():
         fileaccount.close()
     except Exception as err:
         print(err)
-        input("ÇëÕıÈ·ÔÚaccount.txtÀïÃæĞ´ÈëÕËºÅÃÜÂë")
+        input("è¯·æ­£ç¡®åœ¨account.txté‡Œé¢å†™å…¥è´¦å·å¯†ç ")
         exit()
     browser.find_element_by_id("TANGRAM__PSP_3__userName").send_keys(account[0])
     browser.find_element_by_id("TANGRAM__PSP_3__password").send_keys(account[1])
 
-    # µã»÷µÇÂ½µÇÂ½
+    # ç‚¹å‡»ç™»é™†ç™»é™†
     # id="TANGRAM__PSP_3__submit"
     browser.find_element_by_id("TANGRAM__PSP_3__submit").click()
 
-    # µÈ´ıµÇÂ½10Ãë
-    # print('µÈ´ıµÇÂ½10Ãë...')
+    # ç­‰å¾…ç™»é™†10ç§’
+    # print('ç­‰å¾…ç™»é™†10ç§’...')
     # time.sleep(10)
-    print("µÈ´ıÍøÖ·¼ÓÔØÍê±Ï...")
+    print("ç­‰å¾…ç½‘å€åŠ è½½å®Œæ¯•...")
 
-    select = input("Çë¹Û²ìä¯ÀÀÆ÷ÍøÕ¾ÊÇ·ñÒÑ¾­µÇÂ½(y/n)£º")
+    select = input("è¯·è§‚å¯Ÿæµè§ˆå™¨ç½‘ç«™æ˜¯å¦å·²ç»ç™»é™†(y/n)ï¼š")
     while 1:
         if select == "y" or select == "Y":
-            print("µÇÂ½³É¹¦£¡")
-            print("×¼±¸´ò¿ªĞÂµÄ´°¿Ú...")
+            print("ç™»é™†æˆåŠŸï¼")
+            print("å‡†å¤‡æ‰“å¼€æ–°çš„çª—å£...")
             # time.sleep(1)
             # browser.quit()
             break
 
         elif select == "n" or select == "N":
-            selectno = input("ÕËºÅÃÜÂë´íÎóÇë°´0£¬ÑéÖ¤Âë³öÏÖÇë°´1...")
-            # ÕËºÅÃÜÂë´íÎóÔòÖØĞÂÊäÈë
+            selectno = input("è´¦å·å¯†ç é”™è¯¯è¯·æŒ‰0ï¼ŒéªŒè¯ç å‡ºç°è¯·æŒ‰1...")
+            # è´¦å·å¯†ç é”™è¯¯åˆ™é‡æ–°è¾“å…¥
             if selectno == "0":
 
-                # ÕÒµ½id="TANGRAM__PSP_3__userName"µÄ¶Ô»°¿ò
-                # Çå¿ÕÊäÈë¿ò
+                # æ‰¾åˆ°id="TANGRAM__PSP_3__userName"çš„å¯¹è¯æ¡†
+                # æ¸…ç©ºè¾“å…¥æ¡†
                 browser.find_element_by_id("TANGRAM__PSP_3__userName").clear()
                 browser.find_element_by_id("TANGRAM__PSP_3__password").clear()
 
-                # ÊäÈëÕËºÅÃÜÂë
+                # è¾“å…¥è´¦å·å¯†ç 
                 account = []
                 try:
                     fileaccount = open("../baidu/account.txt")
@@ -98,57 +103,57 @@ def openbrowser():
                     fileaccount.close()
                 except Exception as err:
                     print(err)
-                    input("ÇëÕıÈ·ÔÚaccount.txtÀïÃæĞ´ÈëÕËºÅÃÜÂë")
+                    input("è¯·æ­£ç¡®åœ¨account.txté‡Œé¢å†™å…¥è´¦å·å¯†ç ")
                     exit()
 
                 browser.find_element_by_id("TANGRAM__PSP_3__userName").send_keys(account[0])
                 browser.find_element_by_id("TANGRAM__PSP_3__password").send_keys(account[1])
-                # µã»÷µÇÂ½sign in
+                # ç‚¹å‡»ç™»é™†sign in
                 # id="TANGRAM__PSP_3__submit"
                 browser.find_element_by_id("TANGRAM__PSP_3__submit").click()
 
             elif selectno == "1":
-                # ÑéÖ¤ÂëµÄidÎªid="ap_captcha_guess"µÄ¶Ô»°¿ò
-                input("ÇëÔÚä¯ÀÀÆ÷ÖĞÊäÈëÑéÖ¤Âë²¢µÇÂ½...")
-                select = input("Çë¹Û²ìä¯ÀÀÆ÷ÍøÕ¾ÊÇ·ñÒÑ¾­µÇÂ½(y/n)£º")
+                # éªŒè¯ç çš„idä¸ºid="ap_captcha_guess"çš„å¯¹è¯æ¡†
+                input("è¯·åœ¨æµè§ˆå™¨ä¸­è¾“å…¥éªŒè¯ç å¹¶ç™»é™†...")
+                select = input("è¯·è§‚å¯Ÿæµè§ˆå™¨ç½‘ç«™æ˜¯å¦å·²ç»ç™»é™†(y/n)ï¼š")
 
         else:
-            print("ÇëÊäÈë¡°y¡±»òÕß¡°n¡±£¡")
-            select = input("Çë¹Û²ìä¯ÀÀÆ÷ÍøÕ¾ÊÇ·ñÒÑ¾­µÇÂ½(y/n)£º")
+            print("è¯·è¾“å…¥â€œyâ€æˆ–è€…â€œnâ€ï¼")
+            select = input("è¯·è§‚å¯Ÿæµè§ˆå™¨ç½‘ç«™æ˜¯å¦å·²ç»ç™»é™†(y/n)ï¼š")
 ```
 
-### µÇÂ½µÄÒ³Ãæ£º
+### ç™»é™†çš„é¡µé¢ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110154107624-1393804790.png)
 
-### µÇÂ½¹ıºóĞèÒª´ò¿ªĞÂµÄ´°¿Ú£¬Ò²¾ÍÊÇ´ò¿ª°Ù¶ÈÖ¸Êı£¬²¢ÇÒÇĞ»»´°¿Ú£¬ÔÚseleniumÓÃ£º
+### ç™»é™†è¿‡åéœ€è¦æ‰“å¼€æ–°çš„çª—å£ï¼Œä¹Ÿå°±æ˜¯æ‰“å¼€ç™¾åº¦æŒ‡æ•°ï¼Œå¹¶ä¸”åˆ‡æ¢çª—å£ï¼Œåœ¨seleniumç”¨ï¼š
 ```
-# ĞÂ¿ªÒ»¸ö´°¿Ú£¬Í¨¹ıÖ´ĞĞjsÀ´ĞÂ¿ªÒ»¸ö´°¿Ú
+# æ–°å¼€ä¸€ä¸ªçª—å£ï¼Œé€šè¿‡æ‰§è¡Œjsæ¥æ–°å¼€ä¸€ä¸ªçª—å£
 js = 'window.open("http://index.baidu.com");'
 browser.execute_script(js)
-# ĞÂ´°¿Ú¾ä±úÇĞ»»£¬½øÈë°Ù¶ÈÖ¸Êı
-# »ñµÃµ±Ç°´ò¿ªËùÓĞ´°¿ÚµÄ¾ä±úhandles
-# handlesÎªÒ»¸öÊı×é
+# æ–°çª—å£å¥æŸ„åˆ‡æ¢ï¼Œè¿›å…¥ç™¾åº¦æŒ‡æ•°
+# è·å¾—å½“å‰æ‰“å¼€æ‰€æœ‰çª—å£çš„å¥æŸ„handles
+# handlesä¸ºä¸€ä¸ªæ•°ç»„
 handles = browser.window_handles
 # print(handles)
-# ÇĞ»»µ½µ±Ç°×îĞÂ´ò¿ªµÄ´°¿Ú
+# åˆ‡æ¢åˆ°å½“å‰æœ€æ–°æ‰“å¼€çš„çª—å£
 browser.switch_to_window(handles[-1])
     
 ```
 
-### Çå¿ÕÊäÈë¿ò£¬¹¹Ôìµã»÷ÌìÊı£º
+### æ¸…ç©ºè¾“å…¥æ¡†ï¼Œæ„é€ ç‚¹å‡»å¤©æ•°ï¼š
 ```
-# Çå¿ÕÊäÈë¿ò
+# æ¸…ç©ºè¾“å…¥æ¡†
 browser.find_element_by_id("schword").clear()
-# Ğ´ÈëĞèÒªËÑË÷µÄ°Ù¶ÈÖ¸Êı
+# å†™å…¥éœ€è¦æœç´¢çš„ç™¾åº¦æŒ‡æ•°
 browser.find_element_by_id("schword").send_keys(keyword)
-# µã»÷ËÑË÷
+# ç‚¹å‡»æœç´¢
 # <input type="submit" value="" id="searchWords" onclick="searchDemoWords()">
 browser.find_element_by_id("searchWords").click()
 time.sleep(2)
-# ×î´ó»¯´°¿Ú
+# æœ€å¤§åŒ–çª—å£
 browser.maximize_window()
-# ¹¹ÔìÌìÊı
-sel = int(input("²éÑ¯7ÌìÇë°´0£¬30ÌìÇë°´1£¬90ÌìÇë°´2£¬°ëÄêÇë°´3£º"))
+# æ„é€ å¤©æ•°
+sel = int(input("æŸ¥è¯¢7å¤©è¯·æŒ‰0ï¼Œ30å¤©è¯·æŒ‰1ï¼Œ90å¤©è¯·æŒ‰2ï¼ŒåŠå¹´è¯·æŒ‰3ï¼š"))
 day = 0
 if sel == 0:
     day = 7
@@ -160,52 +165,52 @@ elif sel == 3:
     day = 180
 sel = '//a[@rel="' + str(day) + '"]'
 browser.find_element_by_xpath(sel).click()
-# Ì«¿ìÁË
+# å¤ªå¿«äº†
 time.sleep(2)
 ```
 
-### ÌìÊıÒ²¾ÍÊÇÕâÀï£º
+### å¤©æ•°ä¹Ÿå°±æ˜¯è¿™é‡Œï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110154603561-1092775179.png)
 
-### ÕÒµ½Í¼ĞÎ¿ò£º
+### æ‰¾åˆ°å›¾å½¢æ¡†ï¼š
 ```
 xoyelement = browser.find_elements_by_css_selector("#trend rect")[2]
 ```
 
-### Í¼ĞÎ¿ò¾ÍÊÇ£º
+### å›¾å½¢æ¡†å°±æ˜¯ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110154817608-982142410.png)
 
-### ¸ù¾İ×ø±êµãµÄ²»Í¬¹¹ÔìÆ«ÒÆÁ¿£º
+### æ ¹æ®åæ ‡ç‚¹çš„ä¸åŒæ„é€ åç§»é‡ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110155142530-319352053.png)
 
-### Ñ¡È¡7ÌìµÄ×ø±êÀ´¹Û²ì£º
->µÚÒ»¸öµãµÄºá×ø±êÎª1031.66666
+### é€‰å–7å¤©çš„åæ ‡æ¥è§‚å¯Ÿï¼š
+>ç¬¬ä¸€ä¸ªç‚¹çš„æ¨ªåæ ‡ä¸º1031.66666
 
->µÚ¶ş¸öµãµÄºá×ø±êÎª1234
+>ç¬¬äºŒä¸ªç‚¹çš„æ¨ªåæ ‡ä¸º1234
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110155720764-1186100464.png)
 
-ËùÒÔ7ÌìÁ½¸ö×ø±êÖ®¼äµÄ²îÎª£º202.33£¬ÆäËûµÄÌìÊıÀàËÆ
+æ‰€ä»¥7å¤©ä¸¤ä¸ªåæ ‡ä¹‹é—´çš„å·®ä¸ºï¼š202.33ï¼Œå…¶ä»–çš„å¤©æ•°ç±»ä¼¼
 
-### ÓÃselenium¿âÀ´Ä£ÄâÊó±ê»¬¶¯Ğü¸¡£º
+### ç”¨seleniumåº“æ¥æ¨¡æ‹Ÿé¼ æ ‡æ»‘åŠ¨æ‚¬æµ®ï¼š
 ```
 from selenium.webdriver.common.action_chains import ActionChains
 ActionChains(browser).move_to_element_with_offset(xoyelement,x_0,y_0).perform()
 ```
 
-### µ«ÊÇÕâÑù×ÓÈ·¶¨µÄµãÖ¸³öÊÇÔÚÕâ¸öÎ»ÖÃ£º
+### ä½†æ˜¯è¿™æ ·å­ç¡®å®šçš„ç‚¹æŒ‡å‡ºæ˜¯åœ¨è¿™ä¸ªä½ç½®ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110155752202-120333333.png)
 
-Ò²¾ÍÊÇ¾ØĞÎµÄ×óÉÏ½Ç£¬ÕâÀïÊÇ²»»á¼ÓÔØjsÏÔÊ¾µ¯³ö¿òµÄ£¬ËùÒÔÒª¸øºá×ø±ê+1£º
+ä¹Ÿå°±æ˜¯çŸ©å½¢çš„å·¦ä¸Šè§’ï¼Œè¿™é‡Œæ˜¯ä¸ä¼šåŠ è½½jsæ˜¾ç¤ºå¼¹å‡ºæ¡†çš„ï¼Œæ‰€ä»¥è¦ç»™æ¨ªåæ ‡+1ï¼š
 ```
 x_0 = 1
 y_0 = 0
 ```
 
-### Ğ´¸ö°´ÕÕÌìÊıµÄÑ­»·£¬ÈÃºá×ø±êÀÛ¼Ó£º
+### å†™ä¸ªæŒ‰ç…§å¤©æ•°çš„å¾ªç¯ï¼Œè®©æ¨ªåæ ‡ç´¯åŠ ï¼š
 ```
-# °´ÕÕÑ¡ÔñµÄÌìÊıÑ­»·
+# æŒ‰ç…§é€‰æ‹©çš„å¤©æ•°å¾ªç¯
 for i in range(day):
-    # ¹¹Ôì¹æÔò
+    # æ„é€ è§„åˆ™
     if day == 7:
         x_0 = x_0 + 202.33
     elif day == 30:
@@ -216,73 +221,73 @@ for i in range(day):
         x_0 = x_0 + 6.78
 ```
 
-### Êó±êºáÒÆÊ±»áµ¯³ö¿ò£¬ÔÚÍøÖ·ÀïÃæÕÒµ½Õâ¸ö¿ò£º
+### é¼ æ ‡æ¨ªç§»æ—¶ä¼šå¼¹å‡ºæ¡†ï¼Œåœ¨ç½‘å€é‡Œé¢æ‰¾åˆ°è¿™ä¸ªæ¡†ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110160257592-723215476.png)
 
-### selenium×Ô¶¯Ê¶±ğÖ®...£º
+### seleniumè‡ªåŠ¨è¯†åˆ«ä¹‹...ï¼š
 ```
 # <div class="imgtxt" style="margin-left:-117px;"></div>
 imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
 ```
 
-### ²¢ÇÒÈ·¶¨Õâ¸ö¿òµÄ´óĞ¡Î»ÖÃ£º
+### å¹¶ä¸”ç¡®å®šè¿™ä¸ªæ¡†çš„å¤§å°ä½ç½®ï¼š
 ```
-# ÕÒµ½Í¼Æ¬×ø±ê
+# æ‰¾åˆ°å›¾ç‰‡åæ ‡
 locations = imgelement.location
 print(locations)
-# ÕÒµ½Í¼Æ¬´óĞ¡
+# æ‰¾åˆ°å›¾ç‰‡å¤§å°
 sizes = imgelement.size
 print(sizes)
-# ¹¹ÔìÖ¸ÊıµÄÎ»ÖÃ
+# æ„é€ æŒ‡æ•°çš„ä½ç½®
 rangle = (int(locations['x']), int(locations['y']), int(locations['x'] + sizes['width']),
           int(locations['y'] + sizes['height']))
 ```
 
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110160502389-924750650.png)
 
-### ÏÂÃæµÄË¼Â·¾ÍÊÇ£º
->1. ½«Õû¸öÆÁÄ»½ØÍ¼ÏÂÀ´
+### ä¸‹é¢çš„æ€è·¯å°±æ˜¯ï¼š
+>1. å°†æ•´ä¸ªå±å¹•æˆªå›¾ä¸‹æ¥
 
->2. ´ò¿ª½ØÍ¼ÓÃÉÏÃæµÃµ½µÄÕâ¸ö×ø±êrangle½øĞĞ²Ã¼ô
+>2. æ‰“å¼€æˆªå›¾ç”¨ä¸Šé¢å¾—åˆ°çš„è¿™ä¸ªåæ ‡rangleè¿›è¡Œè£å‰ª
 
-### µ«ÊÇ×îºó²Ã¼ô³öÀ´µÄÊÇÉÏÃæµÄÄÇ¸öºÚ¿ò£¬ÎÒÏëÒªµÄĞ§¹ûÊÇ£º
+### ä½†æ˜¯æœ€åè£å‰ªå‡ºæ¥çš„æ˜¯ä¸Šé¢çš„é‚£ä¸ªé»‘æ¡†ï¼Œæˆ‘æƒ³è¦çš„æ•ˆæœæ˜¯ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110160724577-1831216031.jpg)
 
-### ËùÒÔÒª¶Ôrangle½øĞĞ¼ÆËã£¬µ«ÊÇÎÒÀÁ£¬ºöÂÔÁËËÑË÷´ÊµÄ³¤¶È£¬Ö±½Ó±©Á¦µÄĞ´³É£º
+### æ‰€ä»¥è¦å¯¹rangleè¿›è¡Œè®¡ç®—ï¼Œä½†æ˜¯æˆ‘æ‡’ï¼Œå¿½ç•¥äº†æœç´¢è¯çš„é•¿åº¦ï¼Œç›´æ¥æš´åŠ›çš„å†™æˆï¼š
 ```
-# ¹¹ÔìÖ¸ÊıµÄÎ»ÖÃ
+# æ„é€ æŒ‡æ•°çš„ä½ç½®
 rangle = (int(locations['x'] + sizes['width']/3), int(locations['y'] + sizes['height']/2), int(locations['x'] + sizes['width']*2/3),
           int(locations['y'] + sizes['height']))
 ```
 
-### Õâ¸öĞ´·¨×îÖÕ²»Ì«ºÃ£¬×îÆğÂëÒª¶ÔkeywordµÄ³¤¶È½øĞĞÅĞ¶Ï£¬³¤¶È¹ı³¤»áµ¼ÖÂ½ØÍ¼×ø±ê³öÏÖÆ«²î£¬·´ÕıÎÒÖªµÀÔõÃ´×ö£¬¾ÍÊÇ²»Ğ´³öÀ´¸øÄãÃÇ¿´£¡
+### è¿™ä¸ªå†™æ³•æœ€ç»ˆä¸å¤ªå¥½ï¼Œæœ€èµ·ç è¦å¯¹keywordçš„é•¿åº¦è¿›è¡Œåˆ¤æ–­ï¼Œé•¿åº¦è¿‡é•¿ä¼šå¯¼è‡´æˆªå›¾åæ ‡å‡ºç°åå·®ï¼Œåæ­£æˆ‘çŸ¥é“æ€ä¹ˆåšï¼Œå°±æ˜¯ä¸å†™å‡ºæ¥ç»™ä½ ä»¬çœ‹ï¼
 
-### ºóÃæµÄÍêÕû´úÂëÊÇ£º
+### åé¢çš„å®Œæ•´ä»£ç æ˜¯ï¼š
 ```
 # <div class="imgtxt" style="margin-left:-117px;"></div>
 imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
-# ÕÒµ½Í¼Æ¬×ø±ê
+# æ‰¾åˆ°å›¾ç‰‡åæ ‡
 locations = imgelement.location
 print(locations)
-# ÕÒµ½Í¼Æ¬´óĞ¡
+# æ‰¾åˆ°å›¾ç‰‡å¤§å°
 sizes = imgelement.size
 print(sizes)
-# ¹¹ÔìÖ¸ÊıµÄÎ»ÖÃ
+# æ„é€ æŒ‡æ•°çš„ä½ç½®
 rangle = (int(locations['x'] + sizes['width']/3), int(locations['y'] + sizes['height']/2), int(locations['x'] + sizes['width']*2/3),
           int(locations['y'] + sizes['height']))
-# ½ØÈ¡µ±Ç°ä¯ÀÀÆ÷
+# æˆªå–å½“å‰æµè§ˆå™¨
 path = "../baidu/" + str(num)
 browser.save_screenshot(str(path) + ".png")
-# ´ò¿ª½ØÍ¼ÇĞ¸î
+# æ‰“å¼€æˆªå›¾åˆ‡å‰²
 img = Image.open(str(path) + ".png")
 jpg = img.crop(rangle)
 jpg.save(str(path) + ".jpg")
 ```
 
-### µ«ÊÇºóÃæ·¢ÏÖ²Ã¼ôµÄÍ¼Æ¬Ì«Ğ¡£¬Ê¶±ğ¾«¶ÈÌ«µÍ£¬ËùÒÔĞèÒª¶ÔÍ¼Æ¬½øĞĞÀ©´ó£º
+### ä½†æ˜¯åé¢å‘ç°è£å‰ªçš„å›¾ç‰‡å¤ªå°ï¼Œè¯†åˆ«ç²¾åº¦å¤ªä½ï¼Œæ‰€ä»¥éœ€è¦å¯¹å›¾ç‰‡è¿›è¡Œæ‰©å¤§ï¼š
 ```
-# ½«Í¼Æ¬·Å´óÒ»±¶
-# Ô­Í¼´óĞ¡73.29
+# å°†å›¾ç‰‡æ”¾å¤§ä¸€å€
+# åŸå›¾å¤§å°73.29
 jpgzoom = Image.open(str(path) + ".jpg")
 (x, y) = jpgzoom.size
 x_s = 146
@@ -291,11 +296,11 @@ out = jpgzoom.resize((x_s, y_s), Image.ANTIALIAS)
 out.save(path + 'zoom.jpg', 'png', quality=95)
 ```
 
-Ô­Í¼´óĞ¡Çë **ÓÒ¼ü->ÊôĞÔ->ÏêÏ¸ĞÅÏ¢** ²é¿´£¬ÎÒµÄÊÇ³¤73ÏñËØ£¬¿í29ÏñËØ
+åŸå›¾å¤§å°è¯· **å³é”®->å±æ€§->è¯¦ç»†ä¿¡æ¯** æŸ¥çœ‹ï¼Œæˆ‘çš„æ˜¯é•¿73åƒç´ ï¼Œå®½29åƒç´ 
 
-### ×îºó¾ÍÊÇÍ¼ÏñÊ¶±ğ
+### æœ€åå°±æ˜¯å›¾åƒè¯†åˆ«
 ```
-# Í¼ÏñÊ¶±ğ
+# å›¾åƒè¯†åˆ«
 index = []
 image = Image.open(str(path) + "zoom.jpg")
 code = pytesseract.image_to_string(image)
@@ -303,11 +308,11 @@ if code:
     index.append(code)
 ```
 
-### ×îºóĞ§¹ûÍ¼£º
+### æœ€åæ•ˆæœå›¾ï¼š
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110161512889-300916957.png)
 
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110161525874-60911542.png)
 
 
-## ÏêÏ¸½âËµÇë¹Û¿´ÎÒµÄ²©¿Í£º
+## è¯¦ç»†è§£è¯´è¯·è§‚çœ‹æˆ‘çš„åšå®¢ï¼š
 [TTyb](http://www.cnblogs.com/TTyb)
