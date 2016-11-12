@@ -246,11 +246,11 @@ rangle = (int(locations['x']), int(locations['y']), int(locations['x'] + sizes['
           int(locations['y'] + sizes['height']))
 ```
 
+截取的图形为：
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110160502389-924750650.png)
 
 ### 下面的思路就是：
 >1. 将整个屏幕截图下来
-
 >2. 打开截图用上面得到的这个坐标rangle进行裁剪
 
 ### 但是最后裁剪出来的是上面的那个黑框，我想要的效果是：
