@@ -263,7 +263,7 @@ rangle = (int(locations['x'] + sizes['width']/3), int(locations['y'] + sizes['he
           int(locations['y'] + sizes['height']))
 ```
 
-### 这个写法最终不太好，最起码要对keyword的长度进行判断，长度过长会导致截图坐标出现偏差，反正我知道怎么做，就是不写出来给你们看！
+### 这个写法最终不太好，最起码要对keyword的长度进行判断，长度过长会导致截图坐标出现偏差，这里实现的逻辑不难，读者自己捣鼓！
 
 ### 后面的完整代码是：
 ```
