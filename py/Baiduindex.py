@@ -40,7 +40,7 @@ def openbrowser():
     # 输入账号密码
     account = []
     try:
-        fileaccount = open("../baidu/account.txt")
+        fileaccount = open("../baidu/account.txt", encoding='UTF-8')
         accounts = fileaccount.readlines()
         for acc in accounts:
             account.append(acc.strip())
@@ -83,7 +83,7 @@ def openbrowser():
                 # 输入账号密码
                 account = []
                 try:
-                    fileaccount = open("../baidu/account.txt")
+                    fileaccount = open("../baidu/account.txt", encoding='UTF-8')
                     accounts = fileaccount.readlines()
                     for acc in accounts:
                         account.append(acc.strip())
@@ -109,7 +109,7 @@ def openbrowser():
             select = input("请观察浏览器网站是否已经登陆(y/n)：")
 
 
-def getindex(keyword,day):
+def getindex(keyword, day):
     openbrowser()
     time.sleep(2)
 
@@ -128,6 +128,7 @@ def getindex(keyword,day):
     browser.switch_to_window(handles[-1])
     # 在新窗口里面输入网址百度指数
     # 清空输入框
+    time.sleep(5)
     browser.find_element_by_id("schword").clear()
     # 写入需要搜索的百度指数
     browser.find_element_by_id("schword").send_keys(keyword)
@@ -169,7 +170,7 @@ def getindex(keyword,day):
         # 只有移动位置xoyelement[2]是准确的
         for i in range(day):
             # 坐标偏移量???
-            ActionChains(browser).move_to_element_with_offset(xoyelement,x_0,y_0).perform()
+            ActionChains(browser).move_to_element_with_offset(xoyelement, x_0, y_0).perform()
 
             # 构造规则
             if day == 7:
@@ -191,7 +192,8 @@ def getindex(keyword,day):
             sizes = imgelement.size
             print(sizes)
             # 构造指数的位置
-            rangle = (int(locations['x'] + sizes['width']/3), int(locations['y'] + sizes['height']/2), int(locations['x'] + sizes['width']*2/3),
+            rangle = (int(locations['x'] + sizes['width'] / 3), int(locations['y'] + sizes['height'] / 2),
+                      int(locations['x'] + sizes['width'] * 2 / 3),
                       int(locations['y'] + sizes['height']))
             # 截取当前浏览器
             path = "../baidu/" + str(num)
@@ -229,10 +231,11 @@ def getindex(keyword,day):
     print(index)
     # 日期也是可以图像识别下来的
     # 只是要构造rangle就行，但是我就是懒
-    file = open("../baidu/index.txt","w")
+    file = open("../baidu/index.txt", "w")
     for item in index:
         file.write(str(item) + "\n")
     file.close()
+
 
 if __name__ == "__main__":
     # 每个字大约占横坐标12.5这样
@@ -248,4 +251,4 @@ if __name__ == "__main__":
         day = 90
     elif sel == 3:
         day = 180
-    getindex(keyword,day)
+    getindex(keyword, day)
