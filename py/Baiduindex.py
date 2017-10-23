@@ -191,10 +191,12 @@ def getindex(keyword, day):
             # 找到图片大小
             sizes = imgelement.size
             print(sizes)
+            # 构造关键词长度
+            add_length = (len(keyword) - 2) * sizes['width'] / 15
             # 构造指数的位置
-            rangle = (int(locations['x'] + sizes['width'] / 3), int(locations['y'] + sizes['height'] / 2),
-                      int(locations['x'] + sizes['width'] * 2 / 3),
-                      int(locations['y'] + sizes['height']))
+            rangle = (
+            int(locations['x'] + sizes['width'] / 4 + add_length), int(locations['y'] + sizes['height'] / 2 - 40),
+            int(locations['x'] + sizes['width'] * 2 / 3), int(locations['y'] + sizes['height'] - 40))
             # 截取当前浏览器
             path = "../baidu/" + str(num)
             browser.save_screenshot(str(path) + ".png")

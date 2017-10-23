@@ -256,14 +256,18 @@ rangle = (int(locations['x']), int(locations['y']), int(locations['x'] + sizes['
 ### 但是最后裁剪出来的是上面的那个黑框，我想要的效果是：
 ![](http://images2015.cnblogs.com/blog/996148/201611/996148-20161110160724577-1831216031.jpg)
 
-### 所以要对rangle进行计算，但是我懒，忽略了搜索词的长度，直接暴力的写成：
+### 本次更新加入了对于关键词长度的判断，能够自动识别关键词长度而进行截取：
 ```
-# 构造指数的位置
-rangle = (int(locations['x'] + sizes['width']/3), int(locations['y'] + sizes['height']/2), int(locations['x'] + sizes['width']*2/3),
-          int(locations['y'] + sizes['height']))
+add_length = (len(keyword) - 2) * sizes['width'] / 15
 ```
 
-### 这个写法最终不太好，最起码要对keyword的长度进行判断，长度过长会导致截图坐标出现偏差，这里实现的逻辑不难，读者自己捣鼓！
+### 找到位置：
+```
+# 构造指数的位置
+rangle = (
+    int(locations['x'] + sizes['width'] / 4 + add_length), int(locations['y'] + sizes['height'] / 2 - 40),
+    int(locations['x'] + sizes['width'] * 2 / 3), int(locations['y'] + sizes['height'] - 40))
+```
 
 ### 后面的完整代码是：
 ```
@@ -319,3 +323,7 @@ if code:
 
 ## 详细解说请观看我的博客：
 [TTyb](http://www.cnblogs.com/TTyb)
+
+# 更新日志：
+
+> 2017-10-23修复截图位置不对的bug，优化关键词自动识别长度的漏洞
