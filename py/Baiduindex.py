@@ -135,9 +135,10 @@ def getindex(keyword, day):
     # 点击搜索
     # <input type="submit" value="" id="searchWords" onclick="searchDemoWords()">
     browser.find_element_by_id("searchWords").click()
-    time.sleep(2)
+    time.sleep(5)
     # 最大化窗口
     browser.maximize_window()
+    time.sleep(2)
     # 构造天数
     sel = '//a[@rel="' + str(day) + '"]'
     browser.find_element_by_xpath(sel).click()
