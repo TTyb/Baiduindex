@@ -164,6 +164,9 @@ def getindex(keyword, day):
     x_0 = 1
     y_0 = 0
 
+    if day == "all":
+        day = 1000000
+
     # 储存数字的数组
     index = []
     try:
@@ -182,7 +185,8 @@ def getindex(keyword, day):
                 x_0 = x_0 + 13.64
             elif day == 180:
                 x_0 = x_0 + 6.78
-
+            elif day == 1000000:
+                x_0 = x_0 + 3.37222222
             time.sleep(2)
             # <div class="imgtxt" style="margin-left:-117px;"></div>
             imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
@@ -244,7 +248,7 @@ if __name__ == "__main__":
     # 每个字大约占横坐标12.5这样
     # 按照字节可自行更改切割横坐标的大小rangle
     keyword = input("请输入查询关键字：")
-    sel = int(input("查询7天请按0，30天请按1，90天请按2，半年请按3："))
+    sel = int(input("查询7天请按0，30天请按1，90天请按2，半年请按3，全部请按4："))
     day = 0
     if sel == 0:
         day = 7
@@ -254,4 +258,6 @@ if __name__ == "__main__":
         day = 90
     elif sel == 3:
         day = 180
+    elif sel == 4:
+        day = "all"
     getindex(keyword, day)
