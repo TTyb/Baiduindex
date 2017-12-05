@@ -167,8 +167,9 @@ def getindex(keyword, day):
     if day == "all":
         day = 1000000
 
-    # 储存数字的数组
-    index = []
+    # 储存日期和数字的数组
+    index = {}
+    consecutive_data_missing = 0
     try:
         # webdriver.ActionChains(driver).move_to_element().click().perform()
         # 只有移动位置xoyelement[2]是准确的
@@ -190,6 +191,19 @@ def getindex(keyword, day):
             time.sleep(2)
             # <div class="imgtxt" style="margin-left:-117px;"></div>
             imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
+            date = browser.find_element_by_xpath('//div[@id="viewbox"]/div[1]/div[1]').text
+            if date and len(date.strip().split(' ')) > 1:
+                date = date.strip().split(' ')[0]
+            else:
+                print(f'WARN: unrecognized date: {date}')
+                consecutive_data_missing += 1
+                # quit trying when there are 5 consecutive blank indexes
+                if consecutive_data_missing >= 5:
+                    break
+                else:
+                    continue
+            consecutive_data_missing = 0
+
             # 找到图片坐标
             locations = imgelement.location
             print(locations)
@@ -222,13 +236,10 @@ def getindex(keyword, day):
             # 图像识别
             try:
                 image = Image.open(str(path) + "zoom.jpg")
-                code = pytesseract.image_to_string(image)
-                if code:
-                    index.append(code)
-                else:
-                    index.append("")
+                code = pytesseract.image_to_string(image) or ''
             except:
-                index.append("")
+                code = ''
+            index[date] = code
             num = num + 1
 
     except Exception as err:
@@ -236,11 +247,10 @@ def getindex(keyword, day):
         print(num)
 
     print(index)
-    # 日期也是可以图像识别下来的
-    # 只是要构造rangle就行，但是我就是懒
-    file = open("../baidu/index.txt", "w")
-    for item in index:
-        file.write(str(item) + "\n")
+    file = open("../baidu/index.csv", "w")
+    file.write('date,score\n')
+    for date, score in index.items():
+        file.write(f'{date},{score}\n')
     file.close()
 
 
