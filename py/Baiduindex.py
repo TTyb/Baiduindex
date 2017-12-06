@@ -192,7 +192,10 @@ def getindex(keyword, day):
             imgelement = browser.find_element_by_xpath('//div[@id="viewbox"]')
             # 找到图片坐标
             locations = imgelement.location
-            print(locations)
+            # offset by scroll amount
+            scroll = browser.execute_script("return window.scrollY;")
+            top = locations['y'] - scroll
+            print(f"x: {locations['x']}, y: {top}")
             # 找到图片大小
             sizes = imgelement.size
             print(sizes)
@@ -200,8 +203,8 @@ def getindex(keyword, day):
             add_length = (len(keyword) - 2) * sizes['width'] / 15
             # 构造指数的位置
             rangle = (
-            int(locations['x'] + sizes['width'] / 4 + add_length), int(locations['y'] + sizes['height'] / 2 - 40),
-            int(locations['x'] + sizes['width'] * 2 / 3), int(locations['y'] + sizes['height'] - 40))
+            int(locations['x'] + sizes['width'] / 4 + add_length), int(top + sizes['height'] / 2),
+            int(locations['x'] + sizes['width'] * 2 / 3), int(top + sizes['height']))
             # 截取当前浏览器
             path = "../baidu/" + str(num)
             browser.save_screenshot(str(path) + ".png")
