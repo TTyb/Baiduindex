@@ -263,10 +263,13 @@ add_length = (len(keyword) - 2) * sizes['width'] / 15
 
 ### 找到位置：
 ```
+# 跨浏览器兼容
+scroll = browser.execute_script("return window.scrollY;")
+top = locations['y'] - scroll
 # 构造指数的位置
 rangle = (
-    int(locations['x'] + sizes['width'] / 4 + add_length), int(locations['y'] + sizes['height'] / 2 - 40),
-    int(locations['x'] + sizes['width'] * 2 / 3), int(locations['y'] + sizes['height'] - 40))
+    int(locations['x'] + sizes['width'] / 4 + add_length), int(top + sizes['height'] / 2),
+    int(locations['x'] + sizes['width'] * 2 / 3), int(top + sizes['height']))
 ```
 
 ### 后面的完整代码是：
